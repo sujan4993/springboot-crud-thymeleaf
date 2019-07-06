@@ -1,0 +1,39 @@
+<div th:replace="shared/header"></div>
+
+<h2>Product List</h2>
+<div align="center">
+	<h2>Product List</h2>
+	<a href="/product/add" align="">Add Product</a>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Brand</th>
+				<th>Made In</th>
+				<th>Price</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product:${product}">
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.brand}"></td>
+				<td th:text="${product.madein}"></td>
+				<td th:text="${product.price}"></td>
+				<td>
+				
+				<a th:href="@{'/product/edit/'+${product.id}}">Edit</a>
+				<a th:href="@{'/product/delete/'+${product.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+</div>
+
+
+
+<div th:replace="shared/footer"></div>
